@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="helloSpring" class="cn.springdemo.HelloSpring" >
+        <property name="message" >
+            <value>嘿嘿</value>  <!-- 依赖注入 -->
+        </property>
+    </bean>
+
+    <bean id="A4" class="cn.springdemo02.paper.TextPaper">
+
+     </bean>
+    <bean id="A3" class="cn.springdemo02.paper.TextPaper">
+        <property name="charPerLine" value="80" ></property>
+        <property name="linePerPage" value="7"></property>
+     </bean>
+    <bean id="colorInk" class="cn.springdemo02.ink.ColorInk">
+
+    </bean>
+    <bean id="greyInk" class="cn.springdemo02.ink.GreyInk">
+
+    </bean>
+
+    <bean id="printer" class="cn.springdemo02.printer.Printer" >
+        <property name="paper" ref="A3"></property>
+        <property name="ink" ref="colorInk" ></property>
+    </bean>
+
+</beans>
